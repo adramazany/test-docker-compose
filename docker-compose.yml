@@ -1,0 +1,44 @@
+services:
+  hello-world:
+    #image: hello-world
+    build:
+      context: .
+
+#  autoheal:
+#    image: ${docker_registry}/willfarrell/autoheal:1.2.0
+#    restart: always
+#    volumes:
+#      - '/var/run/docker.sock:/var/run/docker.sock'
+#    environment:
+#      - AUTOHEAL_INTERVAL=60
+#      - AUTOHEAL_START_PERIOD=300
+#  zookeeper:
+#    image: ${docker_registry}/zookeeper:3.4.10
+#    restart: always
+#    environment:
+#      ZOO_MAX_CLIENT_CNXNS: 120
+# kafka:
+#    build:
+#      context: ./kafka/
+#      args:
+#        docker_registry: ${docker_registry}
+#    restart: always
+#    ports:
+#      - "9092:9092"
+#    env_file:
+#      - ./environment/kafka.env
+#    environment:
+#      HOSTNAME_COMMAND: "hostname -i | cut -d\" \" -f1"
+#    depends_on:
+#      - zookeeper
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - kafka:/kafka
+#    healthcheck:
+#      test: nc -z kafka 9092
+#      interval: 10s
+#      timeout: 10s
+#      retries: 18
+#    labels:
+#      - 'autoheal.stop.timeout=60'
+#      - 'autoheal=true'
