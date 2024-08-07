@@ -4,6 +4,55 @@ services:
     build:
       context: .
 
+  # Oracle service (label used to access the service container) https://github.com/gvenzl/oci-oracle-xe
+  oracle:
+    # Docker Hub image (feel free to change the tag "latest" to any other available one)
+    image: gvenzl/oracle-xe:11-full
+    
+    # Provide passwords and other environment variables to container
+    environment:
+      #ORACLE_RANDOM_PASSWORD: true
+      ORACLE_PASSWORD: test
+      APP_USER: admin
+      APP_USER_PASSWORD: test
+    
+    # Forward Oracle port
+    ports:
+      - 1521:1521
+    
+    # Provide healthcheck script options for startup
+    #options: >-
+    #  --health-cmd healthcheck.sh
+    #  --health-interval 10s
+    #  --health-timeout 5s
+    #  --health-retries 10
+  
+    volumes:
+      - ../oradata:/u01/app/oracle/oradata
+#      - oracle-volume:/u01/app/oracle/oradata
+  
+#volumes:
+#  oracle-volume:
+#    driver_opts:
+#      type: none
+#      device: ./oradata
+#      o: bind
+
+#    volume_data_paths:
+#        image: sample
+#        volumes:
+#            - ./relative-path-volume:/var/data-two
+#            - /home/ubuntu/absolute-path-volume:/var/data-one
+#            - docker-volume-default-path-volume:/var/data-three
+#            - docker-volume-absolute-path-volume:/var/data-four
+#volumes:
+#  docker-volume-default-path-volume: {}
+#  docker-volume-absolute-path-volume:
+#    driver: local
+#    driver_opts:
+#      o: bind
+#      type: none
+#      device: /home/path/of/your/folder  
 #  autoheal:
 #    image: ${docker_registry}/willfarrell/autoheal:1.2.0
 #    restart: always
