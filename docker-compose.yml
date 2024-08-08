@@ -1,8 +1,4 @@
 services:
-  hello-world:
-    #image: hello-world
-    build:
-      context: .
 
   # Oracle service (label used to access the service container) https://github.com/gvenzl/oci-oracle-xe
   oracle:
@@ -29,7 +25,13 @@ services:
   
     volumes:
       - ../oradata:/u01/app/oracle/oradata
-#      - oracle-volume:/u01/app/oracle/oradata
+      - ./init_scripts:/container-entrypoint-initdb.d
+      #- oracle-volume: /u01/app/oracle/oradata
+
+  #hello-world:
+  #  #image: hello-world
+  #  build:
+  #    context: .
   
 #volumes:
 #  oracle-volume:
