@@ -4,3 +4,5 @@ Testing docker-compose with having 1 oracle database and 1 wavemaker application
 The change made by other contributor than owner! (SHOULD NOT)
 
 The change after dis-allow merge commits! (SHOULD NOT)
+
+The change after creating ruleset and enabling Require a pull request before merging! (SHOULD NOT)
