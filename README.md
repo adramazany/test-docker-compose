@@ -8,3 +8,4 @@ The change after dis-allow merge commits! (SHOULD NOT)
 The change after creating ruleset and enabling Require a pull request before merging! (SUCCEED with comment)
 
 Find out the way of pushing with creating pull request in command line.
+ (SUCCEED)
