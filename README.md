@@ -9,3 +9,4 @@ The change after creating ruleset and enabling Require a pull request before mer
 
 Find out the way of pushing with creating pull request in command line.
  (SUCCEED)
+ with fix pr #19 in second try
